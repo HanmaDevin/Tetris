@@ -26,12 +26,10 @@ def main():
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_LEFT:
                     game.moveLeft()
-                if event.type == pg.K_RIGHT:
+                if event.key == pg.K_RIGHT:
                     game.moveRight()
                 if event.key == pg.K_DOWN:
                     game.moveDown()
-                if event.type == pg.K_UP:
-                    game.moveUp()
         # Draw the Game
         screen.fill(DARK_BLUE)
         game.draw(screen)

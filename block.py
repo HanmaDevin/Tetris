@@ -13,7 +13,6 @@ class Block:
         self.color = Color.getCellColor()
 
     def move(self, rows, cols):
-        
         self.rowOffset += rows
         self.colOffset += cols
 
