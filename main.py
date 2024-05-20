@@ -30,6 +30,8 @@ def main():
                     game.moveRight()
                 if event.key == pg.K_DOWN:
                     game.moveDown()
+                if event.key == pg.K_UP:
+                    game.rotate()
         # Draw the Game
         screen.fill(DARK_BLUE)
         game.draw(screen)

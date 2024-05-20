@@ -23,6 +23,12 @@ class Block:
             position = Position(position.row + self.rowOffset, position.col + self.colOffset)
             movedTile.append(position)
         return movedTile
+    
+    def rotate(self):
+        self.rotation += 1
+        if self.rotation == len(self.cells):
+            self.rotation = 0
+
 
     def draw(self, screen):
         tiles = self.getCellPosition()

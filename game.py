@@ -30,6 +30,9 @@ class Game:
     def moveDown(self):
         self.currentBlock.move(1,0)
 
+    def rotate(self):
+        self.currentBlock.rotate()
+
     def blockInside(self):
         tiles = self.currentBlock.getCellPosition()
         for tile in tiles:
