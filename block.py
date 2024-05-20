@@ -13,6 +13,7 @@ class Block:
         self.color = Color.getCellColor()
 
     def move(self, rows, cols):
+        
         self.rowOffset += rows
         self.colOffset += cols
 
@@ -25,7 +26,7 @@ class Block:
         return movedTile
 
     def draw(self, screen):
-        tiles = self.getCellPosition
+        tiles = self.getCellPosition()
         for tile in tiles:
             tileRect = pg.Rect(tile.col * self.cellSize + 1, tile.row * self.cellSize + 1,
                                self.cellSize - 1, self.cellSize - 1)
