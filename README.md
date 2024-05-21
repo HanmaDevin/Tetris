@@ -72,5 +72,5 @@ git clone https://github.com/HanmaDevin/Tetris
 lastly run the following command:
 
 ```shell
-python3 Main.py
+python3 main.py
 ```
