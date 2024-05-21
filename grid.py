@@ -1,30 +1,35 @@
 import pygame as pg
-from color import Color
+from colors import Colors
 
 class Grid:
     def __init__(self):
-        self.rows = 20
-        self.cols = 10
-        self.cellSize = 30
+        self.num_rows = 20
+        self.num_cols = 10
+        self.cell_size = 30
         # generate a 2D array with zeroes and with 20 rows and 10 columns
-        self.grid = [[0 for j in range(self.cols)] for i in range(self.rows)]
-        self.colors = Color.getCellColor()
+        self.grid = [[0 for j in range(self.num_cols)] for i in range(self.num_rows)]
+        self.colors = Colors.get_cell_colors()
 
     def printGrid(self):
-        for row in range(self.rows):
-            for col in range(self.cols):
+        for row in range(self.num_rows):
+            for col in range(self.num_cols):
                 print(self.grid[row][col], end=" ")
             print()
 
     def isInside(self, row, col):
-        if row >= 0 and row < self.rows and col >= 0 and col < self.cols:
+        if row >= 0 and row < self.num_rows and col >= 0 and col < self.num_cols:
+            return True
+        return False
+    
+    def cellIsEmpty(self, row, col):
+        if self.grid[row][col] == 0:
             return True
         return False
         
     
     def draw(self, screen):
-        for row in range(self.rows):
-            for col in range(self.cols):
-                cellValue = self.grid[row][col]
-                cellRect = pg.Rect(col*self.cellSize + 1, row*self.cellSize + 1, self.cellSize - 1, self.cellSize - 1)
-                pg.draw.rect(screen, self.colors[cellValue], cellRect)
+        for row in range(self.num_rows):
+            for col in range(self.num_cols):
+                cell_value = self.grid[row][col]
+                cell_rect = pg.Rect(col*self.cell_size + 1, row*self.cell_size + 1, self.cell_size - 1, self.cell_size - 1)
+                pg.draw.rect(screen, self.colors[cell_value], cell_rect)
