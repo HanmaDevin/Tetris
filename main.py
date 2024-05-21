@@ -16,6 +16,8 @@ def main():
     running = True
 
     game = Game()
+    GAME_UPDATE = pg.USEREVENT
+    pg.time.set_timer(GAME_UPDATE, 200)
 
     while(running):
         for event in pg.event.get():
@@ -32,6 +34,8 @@ def main():
                     game.moveDown()
                 if event.key == pg.K_UP:
                     game.rotate()
+            if event.type == GAME_UPDATE:
+                game.moveDown()
         # Draw the Game
         screen.fill(DARK_BLUE)
         game.draw(screen)

@@ -29,6 +29,17 @@ class Game:
     
     def moveDown(self):
         self.currentBlock.move(1,0)
+        if self.blockInside() == False:
+            self.currentBlock.move(-1,0)
+            self.lockBlock()
+
+    def lockBlock(self):
+        tiles = self.currentBlock.getCellPosition()
+        for position in tiles:
+            self.grid.grid[position.row][position.col] = self.currentBlock.id
+        self.currentBlock = self.nextBlock
+        self.nextBlock = self.getRandomBlock()
+
 
     def rotate(self):
         self.currentBlock.rotate()
