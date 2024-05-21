@@ -43,8 +43,7 @@ pygame --version
 4. then type this in your terminal:
 
 ```shell
-git clone https://github.com/HanmaDevin/Chess_Engine
-
+git clone https://github.com/HanmaDevin/Tetris
 ```
 
 lastly run the following command:
@@ -67,13 +66,7 @@ git config --global user.email "your@email.com"
 4. then type this in your terminal:
 
 ```shell
-git clone https://github.com/HanmaDevin/Chess_Engine
-```
-
-change directory with this command
-
-```shell
-cd Chess_Engine/Chess/src/main
+git clone https://github.com/HanmaDevin/Tetris
 ```
 
 lastly run the following command:
