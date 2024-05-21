@@ -46,6 +46,7 @@ class Game:
             self.grid.grid[position.row][position.col] = self.currentBlock.id
         self.currentBlock = self.nextBlock
         self.nextBlock = self.getRandomBlock()
+        self.grid.clear_full_rows()
 
 
     def rotate(self):
