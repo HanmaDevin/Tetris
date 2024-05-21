@@ -34,6 +34,12 @@ pygame --version
 
 ## How to run
 
+There is a python script named ***start_game_windows.py*** wich can be used to start the game. Recommended for people who never used github or python. Install python if you are a windows user and run that script using this simple command:
+
+```shell
+python3 Tetris/game/start_game_windows.py
+```
+
 ### Linux and Mac
 
 1. install git. if you do not know how, [visit this link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
