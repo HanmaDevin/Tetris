@@ -17,7 +17,7 @@ Afterward check if the installation was successful. Type in your terminal:
 python3 --version
 ```
 
-Pygame is installed via the pip command, which comes 
+Pygame is installed via the pip command, which comes
 with the python install
 
 Run the following in your terminal:
@@ -46,6 +46,12 @@ pygame --version
 git clone https://github.com/HanmaDevin/Tetris
 ```
 
+type this command:
+
+```shell
+cd game
+```
+
 lastly run the following command:
 
 ```shell
@@ -67,6 +73,12 @@ git config --global user.email "your@email.com"
 
 ```shell
 git clone https://github.com/HanmaDevin/Tetris
+```
+
+type this command:
+
+```shell
+cd game
 ```
 
 lastly run the following command:
