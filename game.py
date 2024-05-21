@@ -6,10 +6,11 @@ class Game:
     def __init__(self):
         self.grid = Grid()
         self.blocks = [IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock()]
-        self.currentBlock = self.getRandomBlock()
-        self.nextBlock = self.getRandomBlock()  
+        self.current_block = self.get_random_block()
+        self.next_block = self.get_random_block()  
+        self.game_over = False
 
-    def getRandomBlock(self) -> Block:
+    def get_random_block(self) -> Block:
         if len(self.blocks) == 0:
             self.blocks = [IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock()]
 
@@ -17,51 +18,53 @@ class Game:
         self.blocks.remove(block)
         return block
     
-    def moveLeft(self):
-        self.currentBlock.move(0,-1)
-        if self.blockInside() == False or self.validTiles() == False:
-            self.currentBlock.move(0,1)
+    def move_left(self):
+        self.current_block.move(0,-1)
+        if self.block_inside() == False or self.block_fits() == False:
+            self.current_block.move(0,1)
         
-    def moveRight(self):
-        self.currentBlock.move(0, 1)
-        if self.blockInside() == False or self.validTiles() == False:
-            self.currentBlock.move(0,-1)
+    def move_right(self):
+        self.current_block.move(0, 1)
+        if self.block_inside() == False or self.block_fits() == False:
+            self.current_block.move(0,-1)
     
-    def moveDown(self):
-        self.currentBlock.move(1,0)
-        if self.blockInside() == False or self.validTiles() == False:
-            self.currentBlock.move(-1,0)
-            self.lockBlock()
+    def move_down(self):
+        self.current_block.move(1,0)
+        if self.block_inside() == False or self.block_fits() == False:
+            self.current_block.move(-1,0)
+            self.lock_block()
 
-    def validTiles(self):
-        tiles = self.currentBlock.getCellPosition()
+    def block_fits(self):
+        tiles = self.current_block.get_cell_position()
         for tile in tiles:
-            if self.grid.cellIsEmpty(tile.row, tile.col) == False:
+            if self.grid.cell_is_empty(tile.row, tile.col) == False:
                 return False
         return True
 
-    def lockBlock(self):
-        tiles = self.currentBlock.getCellPosition()
+    def lock_block(self):
+        tiles = self.current_block.get_cell_position()
         for position in tiles:
-            self.grid.grid[position.row][position.col] = self.currentBlock.id
-        self.currentBlock = self.nextBlock
-        self.nextBlock = self.getRandomBlock()
+            self.grid.grid[position.row][position.col] = self.current_block.id
+        self.current_block = self.next_block
+        self.next_block = self.get_random_block()
         self.grid.clear_full_rows()
+        if self.block_fits() == False:
+            self.game_over = True
 
 
     def rotate(self):
-        self.currentBlock.rotate()
-        if self.blockInside() == False or self.validTiles() == False:
-            self.currentBlock.undoRotation()
+        self.current_block.rotate()
+        if self.block_inside() == False or self.block_fits() == False:
+            self.current_block.undo_rotation()
     
 
-    def blockInside(self):
-        tiles = self.currentBlock.getCellPosition()
+    def block_inside(self):
+        tiles = self.current_block.get_cell_position()
         for tile in tiles:
-            if self.grid.isInside(tile.row, tile.col) == False:
+            if self.grid.is_inside(tile.row, tile.col) == False:
                 return False
         return True
     
     def draw(self, screen):
         self.grid.draw(screen)
-        self.currentBlock.draw(screen)
+        self.current_block.draw(screen)

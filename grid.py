@@ -10,18 +10,18 @@ class Grid:
         self.grid = [[0 for j in range(self.num_cols)] for i in range(self.num_rows)]
         self.colors = Colors.get_cell_colors()
 
-    def printGrid(self):
+    def print_grid(self):
         for row in range(self.num_rows):
             for col in range(self.num_cols):
                 print(self.grid[row][col], end=" ")
             print()
 
-    def isInside(self, row, col):
+    def is_inside(self, row, col):
         if row >= 0 and row < self.num_rows and col >= 0 and col < self.num_cols:
             return True
         return False
     
-    def cellIsEmpty(self, row, col):
+    def cell_is_empty(self, row, col):
         if self.grid[row][col] == 0:
             return True
         return False
