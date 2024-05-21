@@ -65,6 +65,12 @@ class Game:
                 return False
         return True
     
+    def reset(self):
+        self.grid.reset()
+        self.blocks = [IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock()]
+        self.current_block = self.get_random_block()
+        self.next_block = self.get_random_block()
+
     def draw(self, screen):
         self.grid.draw(screen)
         self.current_block.draw(screen)
