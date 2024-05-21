@@ -49,7 +49,7 @@ git clone https://github.com/HanmaDevin/Tetris
 type this command:
 
 ```shell
-cd game
+cd Tetris/game
 ```
 
 lastly run the following command:
@@ -78,7 +78,7 @@ git clone https://github.com/HanmaDevin/Tetris
 type this command:
 
 ```shell
-cd game
+cd Tetris/game
 ```
 
 lastly run the following command:
